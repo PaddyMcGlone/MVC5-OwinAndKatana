@@ -1,9 +1,15 @@
 ﻿using Microsoft.Owin.Hosting;
 using Owin;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Katana
 {
+    // Using the AppFunc throughout instead of along name throughout
+    using AppFunc = Func<IDictionary<string, object>, Task>;
+
     class Program
     {
         // Entry point
@@ -31,6 +37,22 @@ namespace Katana
 
                 // Run method - katana calls into to process all http requests
                 //app.Run(ctx => ctx.Response.WriteAsync("Hello World")); //WriteAsync, this is a method which returns a task.
+            }
+        }
+
+        public class HelloWorldComponent
+        {
+
+            // In this code we have to define the next component in the pipeline.
+            AppFunc _next;
+            public HelloWorldComponent(AppFunc nextComponent)
+            {
+                _next = nextComponent;
+            }
+
+            public async Task Invoke(IDictionary<string, object> enviornment)
+            {
+                await _next();
             }
         }
 
