@@ -1,1 +1,13 @@
 C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Katana.exe.config
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Katana.exe
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Katana.pdb
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Owin.dll
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\obj\Debug\Katana.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\obj\Debug\Katana.exe
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\obj\Debug\Katana.pdb
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Microsoft.Owin.dll
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Microsoft.Owin.Host.HttpListener.dll
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Microsoft.Owin.Hosting.dll
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Microsoft.Owin.xml
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Microsoft.Owin.Host.HttpListener.xml
+C:\Users\Administrator\code\MVC5-OwinAndKatana\OwinAndKatana\Katana\bin\Debug\Microsoft.Owin.Hosting.xml
