@@ -1,10 +1,10 @@
 ﻿using Microsoft.Owin.Hosting;
 using Owin;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Katana
 {
@@ -42,9 +42,60 @@ namespace Katana
                 //app.Run(ctx => ctx.Response.WriteAsync("Hello World")); //WriteAsync, this is a method which returns a task.
 
                 //Register low level component
-                AppBuilderUseExtensions.Use<HelloWorldComponent>();
+                //app.UseHelloWorld();
+
+                /* Middle ware examples */
+
+                    // MiddleWare whichoutputs everything in the request context
+                    //Lambda expression, takes the enviornment and the next component
+                    //app.Use(async (Environment, next) =>
+                    //{
+                    //    foreach (var pair in Environment.Environment
+                    //    ) // Enviornment.enviornment an IDictionary of string and object (Request context)
+                    //    {
+                    //        Console.WriteLine($"{pair.Key} {pair.Value}");
+                    //    }
+                    //    await next(); // chaining to the next component in the pipeline
+                    //});
+
+                    app.Use(async (Environment, next) =>
+                    {
+                        Console.WriteLine($"Requeesting: {Environment.Request.Path}"); // Path during the request
+
+                        await next(); // If you dont use this then the next component on the pipleline will not be called.
+
+                        Console.WriteLine($"Response: {Environment.Response.StatusCode}"); // Response returned following request
+                    });
+
+
+                /* WebAPI - Serailze an object and output result */
+                // Install - Package - IncludePreRelease Microsoft.ASPNet.WebApi.OwinSelfHost
+
+                ConfigureWebApi(app);
+
+            }
+
+            private void ConfigureWebApi(IAppBuilder app)
+            {
+                var config = new HttpConfiguration(); // Controls the routing rules / serializers and formatters
+
+                // We use the HttpConfig for specifying the Routing rules
+                config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new {id = RouteParameter.Optional});
+
+                // Plugging in the WebApi component
+                app.UseWebApi(config);
+
+
             }
         }
+
+        //public static class AppBuilderExtensions
+        //{
+        //    public static void UseHelloWorld(this IAppBuilder app)
+        //    {
+        //        app.Use<HelloWorldComponent>();
+        //    }
+        //}
 
 
         // Low level code you can write
