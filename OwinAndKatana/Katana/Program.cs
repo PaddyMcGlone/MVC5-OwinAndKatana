@@ -71,6 +71,10 @@ namespace Katana
                 /* WebAPI - Serailze an object and output result */
                 // Install - Package - IncludePreRelease Microsoft.ASPNet.WebApi.OwinSelfHost
 
+                /* Working with IIS server package */
+                //Install-Package -IncludePreRelease Microsoft.ASPNet.Owin.Host.SystemWeb
+                // The package above installs a paclage which nows how to plug into the aspNet pipeline.
+
                 ConfigureWebApi(app);
 
             }
